@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Paradise Gems | Sri Lanka</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    
+    <style>
+        :root {
+            --royal-blue: #002d62;
+            --gold: #d4af37;
+        }
+
+        html, body {
+            height: 100%;
+            margin: 0;
+            display: flex;
+            flex-direction: column;
+            overflow-x: hidden;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        .navbar { 
+            background-color: var(--royal-blue);
+            transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+            padding: 15px 0;
+        }
+
+        .hero-section { 
+            flex: 1;
+            background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), 
+                        url('https://images.unsplash.com/photo-1573408301185-9146fe634ad0?q=80&w=2069&auto=format&fit=crop'); 
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            padding: 100px 0;
+            text-align: center;
+        }
+
+        /* Floating Animation */
+        @keyframes float {
+            0% { transform: translateY(0px); }
+            50% { transform: translateY(-15px); }
+            100% { transform: translateY(0px); }
+        }
+
+        .floating {
+            animation: float 4s ease-in-out infinite;
+        }
+
+        /* Text Animation States */
+        .reveal {
+            opacity: 0;
+            transform: translateY(40px);
+            transition: all 1.2s cubic-bezier(0.19, 1, 0.22, 1);
+        }
+
+        .reveal.active {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .hero-section h1 {
+            color: var(--gold) !important;
+            text-shadow: 0 0 15px rgba(212, 175, 55, 0.3);
+            letter-spacing: 5px;
+            font-weight: 800;
+        }
+
+        .btn-gold {
+            background-color: var(--gold);
+            color: white;
+            border: 2px solid transparent;
+            padding: 12px 35px;
+            transition: 0.4s all;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            font-weight: 600;
+        }
+
+        .btn-gold:hover {
+            background-color: transparent;
+            border-color: var(--gold);
+            color: var(--gold);
+            transform: scale(1.05);
+            box-shadow: 0 5px 15px rgba(212, 175, 55, 0.4);
+        }
+
+        .footer { 
+            background-color: #0a0a0a; 
+            color: #ccc; 
+            padding: 40px 0;
+            border-top: 1px solid #222;
+        }
+    </style>
+</head>
+<body>
+
+    <nav class="navbar navbar-expand-lg navbar-dark sticky-top" id="mainNav">
+        <div class="container">
+            <a class="navbar-brand fw-bold" href="#">💎 PARADISE GEMS</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto text-uppercase small fw-bold">
+                    <li class="nav-item"><a class="nav-link px-3" href="index.html">Home</a></li>
+                    <li class="nav-item"><a class="nav-link px-3" href="products.html">Products</a></li>
+                    <li class="nav-item"><a class="nav-link px-3" href="contact.html">Contact Us</a></li>
+                    <a class="nav-link active" href="login.html">Login</a>
+                    <a class="nav-link" href="signup.html">Sign Up</a>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <header class="hero-section">
+        <div class="container">
+            <div class="floating">
+                <h1 class="display-1 reveal">Paradise Gems</h1>
+                <p class="lead mb-4 reveal" style="max-width: 600px; margin: 0 auto;">
+                    Ethically sourced Sapphires and Rubies from the tropical heart of Sri Lanka.
+                </p>
+            </div>
+            <div class="reveal mt-4">
+                <a href="products.html" class="btn btn-gold btn-lg">Discover Collection</a>
+            </div>
+        </div>
+    </header>
+
+    <footer class="footer text-center">
+        <div class="container">
+            <p>© 2026 Paradise Gems Sri Lanka. All Rights Reserved.</p>
+            <small style="color: #555;">Developed by The Confused Geniuses</small>
+        </div>
+    </footer>
+
+    <script>
+        // Staggered Reveal Animation
+        window.addEventListener('load', () => {
+            const reveals = document.querySelectorAll('.reveal');
+            reveals.forEach((el, index) => {
+                setTimeout(() => {
+                    el.classList.add('active');
+                }, 400 * (index + 1)); // Delays each element slightly more
+            });
+        });
+
+        // Smooth Navbar Shrink
+        window.onscroll = function() {
+            const nav = document.getElementById('mainNav');
+            if (window.scrollY > 80) {
+                nav.style.backgroundColor = "rgba(0, 45, 98, 0.95)"; 
+                nav.style.padding = "10px 0";
+                nav.style.boxShadow = "0 4px 10px rgba(0,0,0,0.3)";
+            } else {
+                nav.style.backgroundColor = "var(--royal-blue)";
+                nav.style.padding = "15px 0";
+                nav.style.boxShadow = "none";
+            }
+        };
+    </script>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
